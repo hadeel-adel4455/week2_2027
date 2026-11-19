@@ -1,0 +1,648 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+
+/* General Design */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #F4EFE5;
+    color: #303B35;
+    direction: ltr;
+}
+
+/* Header */
+
+.main-header {
+    background: #303B35;
+    color: white;
+    padding: 22px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.main-header h2 {
+    margin: 0;
+    color: #B28A55;
+}
+
+.main-header nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.main-header nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.main-header nav a:hover {
+    color: #D5B77F;
+}
+
+/* Main Content */
+
+.main-container {
+    min-height: 80vh;
+    padding: 45px 20px;
+}
+
+/* Footer */
+
+.main-footer {
+    background: #303B35;
+    color: #E5DCCB;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Forms */
+
+.form-card {
+    background: white;
+    width: 100%;
+    max-width: 480px;
+    margin: 20px auto;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px rgba(48,59,53,0.08);
+}
+
+.form-card h2 {
+    text-align: center;
+    color: #303B35;
+    margin-bottom: 10px;
+}
+
+.form-card p {
+    text-align: center;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.form-card label {
+    display: block;
+    margin: 15px 0 8px;
+    font-weight: bold;
+}
+
+.form-card input,
+.form-card select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #E3DCCF;
+    border-radius: 9px;
+    background: #FAF8F3;
+    font-size: 15px;
+}
+
+.form-card input:focus,
+.form-card select:focus {
+    outline: none;
+    border-color: #B28A55;
+}
+
+/* Buttons */
+
+button,
+.btn {
+    background: #B28A55;
+    color: white;
+    border: none;
+    padding: 13px 24px;
+    border-radius: 9px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+button:hover,
+.btn:hover {
+    background: #927044;
+}
+
+.form-card button {
+    width: 100%;
+    margin-top: 22px;
+}
+
+/* Tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: #303B35;
+    color: white;
+    padding: 15px;
+}
+
+td {
+    padding: 13px;
+    text-align: center;
+    border-bottom: 1px solid #eee8dc;
+}
+
+/* Cards */
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(48,59,53,0.06);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-header nav {
+        justify-content: center;
+    }
+
+    .main-container {
+        padding: 20px 12px;
+    }
+
+    .form-card {
+        padding: 22px;
+    }
+}
+
+.cancel-btn {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    padding: 13px;
+    background: #303B35;
+    color: #FFFFFF;
+    border-radius: 9px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cancel-btn:hover {
+    background: #1D2823;
+}
+
+/* Page Headings */
+
+.page-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-heading h1 {
+    color: #303B35;
+    font-size: 30px;
+}
+
+.page-heading p {
+    color: #888;
+}
+
+/* Table Sections */
+
+.students-section,
+.courses-section {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin: 25px auto;
+    box-shadow: 0 4px 18px rgba(48,59,53,0.06);
+}
+
+.students-section h2,
+.courses-section h2 {
+    color: #303B35;
+    margin-bottom: 20px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    min-width: 650px;
+}
+
+tbody tr:hover {
+    background: #F9F5EC;
+}
+
+td button {
+    background: #B28A55;
+}
+
+/* Home Page */
+
+.home-card {
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 45px 30px;
+    background: white;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(48,59,53,0.08);
+}
+
+.home-icon {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #F4EFE5;
+    color: #B28A55;
+    font-size: 35px;
+}
+
+.home-card h1 {
+    color: #303B35;
+    font-size: 32px;
+}
+
+.welcome-text {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.user-info {
+    background: #F4EFE5;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.user-info span {
+    color: #927044;
+    font-size: 14px;
+}
+
+.user-info h3 {
+    color: #303B35;
+    overflow-wrap: anywhere;
+}
+
+.signout-btn {
+    background: #303B35;
+    width: 100%;
+}
+
+.signout-btn:hover {
+    background: #1D2823;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    margin: 0;
+}
+
+.section-header .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 20px;
+    background: #B28A55;
+    color: white;
+    border-radius: 9px;
+    transition: 0.3s;
+}
+
+.section-header .btn:hover {
+    background: #927044;
+}
+
+/* Add spacing before students table */
+.students-section {
+    margin-top: 30px;
+}
+
+/* Smaller Delete button */
+.students-section table button {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    min-width: 65px;
+}
+
+/* Arrange action buttons */
+.students-section table td:last-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+/* Edit button */
+.students-section table td:last-child a.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 6px;
+    background: #B28A55;
+    color: white;
+}
+
+/* Delete button form */
+.students-section table td:last-child form {
+    margin: 0;
+}
+
+/* Delete button */
+.students-section table td:last-child button {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-width: 65px;
+    border-radius: 6px;
+}
+.students-section table td:last-child a.btn,
+.students-section table td:last-child button {
+    width: 75px;
+    height: 34px;
+    padding: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    box-sizing: border-box;
+    margin: 0;
+}
+.auth-link a {
+    text-decoration: underline;
+}
+
+/* Course Form Buttons */
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.form-actions button,
+.form-actions a.btn {
+    width: 130px;
+    height: 42px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-actions button {
+    background: #303B35;
+    color: white;
+}
+
+.form-actions button:hover {
+    background: #1D2823;
+}
+
+.form-actions a.btn {
+    background: #B28A55;
+    color: white;
+}
+
+.form-actions a.btn:hover {
+    background: #927044;
+}
+/* Course Form Buttons */
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.form-actions button,
+.form-actions a.btn {
+    width: 100%;
+    height: 49px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: normal;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Save Button */
+.form-actions button {
+    background: #B28A55;
+    color: white;
+}
+
+.form-actions button:hover {
+    background: #927044;
+}
+
+/* Cancel Button */
+.form-actions a.btn {
+    background: #303B35;
+    color: white;
+}
+
+.form-actions a.btn:hover {
+    background: #1D2823;
+}
+/* Enrollment Page */
+
+.enrollment-section {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(48,59,53,0.08);
+}
+
+.enrollment-section h2,
+.enrollment-section h3 {
+    color: #303B35;
+    margin-bottom: 20px;
+}
+
+.enrollment-section select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    background: white;
+}
+
+.student-option {
+    background: #F9F5EC;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.student-option label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.student-option input {
+    accent-color: #B28A55;
+    width: 17px;
+    height: 17px;
+}
+
+.enrollment-section .form-actions {
+    margin-top: 25px;
+}
+.enrollment-page {
+    background: #F4EFE5;
+}
+
+.enrollment-section {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(48,59,53,0.08);
+}
+
+.enrollment-section h2,
+.enrollment-section h3 {
+    color: #303B35;
+    margin-bottom: 20px;
+}
+
+.enrollment-section select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 12px 0 25px;
+}
+
+.enrollment-section .student {
+    background: #F9F5EC;
+    padding: 13px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.enrollment-section .student input {
+    accent-color: #B28A55;
+    margin-left: 8px;
+}
+
+.enrollment-section button {
+    background: #303B35;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.enrollment-section {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(48, 59, 53, 0.08);
+}
+
+.enrollment-section h2 {
+    color: #303B35;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.enrollment-section h3 {
+    color: #B28A55;
+    margin-bottom: 15px;
+}
+
+.enrollment-section h4 {
+    color: #303B35;
+}
+
+.enrollment-section .student {
+    background: #F4EFE5;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.enrollment-section .student p {
+    color: #303B35;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.enrollment-section a {
+    display: inline-block;
+    background: #303B35;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.enrollment-section a:hover {
+    background: #B28A55;
+}
+
+body {
+    background: #F4EFE5;
+}
